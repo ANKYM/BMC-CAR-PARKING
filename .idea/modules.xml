@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BMCParkingClient.iml" filepath="$PROJECT_DIR$/BMCParkingClient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BMC-CAR-PARKING.iml" filepath="$PROJECT_DIR$/BMC-CAR-PARKING.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
