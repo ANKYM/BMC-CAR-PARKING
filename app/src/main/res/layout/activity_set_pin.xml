@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.omkar.bmcparkingclient.Activity.SetPinActivity">
+
+    <TextView
+        android:layout_marginTop="60dp"
+        android:id="@+id/firstLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/firstPinView"
+        android:layout_alignParentTop="true"
+        android:text="Enter PIN" />
+
+    <com.chaos.view.PinView
+        android:id="@+id/firstPinView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/firstLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/common_padding"
+        android:inputType="numberPassword"
+        android:textColor="@color/line_colors"
+        app:itemRadius="@dimen/pv_pin_view_item_radius"
+        app:lineColor="@color/line_colors" />
+
+    <TextView
+        android:id="@+id/secondLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/secondPinView"
+        android:layout_below="@+id/firstPinView"
+        android:text="Confirm Pin" />
+
+    <com.chaos.view.PinView
+        android:id="@+id/secondPinView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/secondLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/common_padding"
+        android:cursorVisible="false"
+        android:inputType="numberPassword"
+        android:textColor="@color/line_colors"
+        app:itemRadius="@dimen/pv_pin_view_item_radius"
+        android:enabled="false"
+        app:lineColor="@color/line_colors" />
+
+    <Button
+        android:id="@+id/button_set_pin"
+        android:layout_width="260dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/secondPinView"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="50dp"
+        android:background="@color/colorPrimary"
+        android:bottomLeftRadius="10dp"
+        android:bottomRightRadius="10dp"
+        android:text="Set Pin"
+        android:enabled="false"
+        android:textColor="@color/colorText"
+        android:topLeftRadius="10dp"
+        android:topRightRadius="10dp" />
+
+</RelativeLayout>
