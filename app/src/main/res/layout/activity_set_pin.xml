@@ -4,66 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     tools:context="com.omkar.bmcparkingclient.Activity.SetPinActivity">
 
-    <TextView
-        android:layout_marginTop="60dp"
-        android:id="@+id/firstLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/firstPinView"
-        android:layout_alignParentTop="true"
-        android:text="Enter PIN" />
 
-    <com.chaos.view.PinView
-        android:id="@+id/firstPinView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/firstLabel"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="@dimen/common_padding"
-        android:inputType="numberPassword"
-        android:textColor="@color/line_colors"
-        app:itemRadius="@dimen/pv_pin_view_item_radius"
-        app:lineColor="@color/line_colors" />
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
 
-    <TextView
-        android:id="@+id/secondLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/secondPinView"
-        android:layout_below="@+id/firstPinView"
-        android:text="Confirm Pin" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-thin"
+            android:text="Enter PIN"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textColor="@color/colorText"
+            android:textSize="20sp" />
 
-    <com.chaos.view.PinView
-        android:id="@+id/secondPinView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/secondLabel"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="@dimen/common_padding"
-        android:cursorVisible="false"
-        android:inputType="numberPassword"
-        android:textColor="@color/line_colors"
-        app:itemRadius="@dimen/pv_pin_view_item_radius"
-        android:enabled="false"
-        app:lineColor="@color/line_colors" />
+        <me.philio.pinentry.PinEntryView
+            android:id="@+id/firstPinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:accentType="character"
+            app:digitElevation="10dp"
+            app:digitTextSize="30dp" />
 
-    <Button
-        android:id="@+id/button_set_pin"
-        android:layout_width="260dp"
-        android:layout_height="50dp"
-        android:layout_below="@+id/secondPinView"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="50dp"
-        android:background="@color/colorPrimary"
-        android:bottomLeftRadius="10dp"
-        android:bottomRightRadius="10dp"
-        android:text="Set Pin"
-        android:enabled="false"
-        android:textColor="@color/colorText"
-        android:topLeftRadius="10dp"
-        android:topRightRadius="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-thin"
+            android:text="Confirm PIN"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textColor="@color/colorText"
+            android:textSize="20sp" />
+
+        <me.philio.pinentry.PinEntryView
+            android:id="@+id/secondPinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:enabled="false"
+            app:accentType="character"
+            app:digitElevation="10dp"
+            app:digitTextSize="30dp" />
+
+
+        <Button
+            android:id="@+id/button_set_pin"
+            android:layout_width="260dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="50dp"
+            android:background="@color/colorPrimary"
+            android:bottomLeftRadius="10dp"
+            android:bottomRightRadius="10dp"
+            android:enabled="false"
+            android:text="Set Pin"
+            android:elevation="5dp"
+            android:textColor="@color/colorText"
+            android:topLeftRadius="10dp"
+            android:topRightRadius="10dp" />
+
+
+    </LinearLayout>
+
 
 </RelativeLayout>

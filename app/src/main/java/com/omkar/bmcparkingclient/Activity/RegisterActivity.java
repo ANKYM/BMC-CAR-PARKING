@@ -60,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(RegisterActivity.this, PERMISSIONS, PERMISSION_ALL);
         } else {
             if (isRegister) {
-                Intent loginIntent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent loginIntent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(loginIntent);
                 finish();
             }
@@ -73,7 +73,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if (et_user_id.getText().toString().trim().length() > 0) {
                         if (et_user_password.getText().toString().trim().length() > 0) {
                             try {
-                                Register_User(et_user_id.getText().toString().trim(),et_user_password.getText().toString().trim());
+                                RegisterUser(et_user_id.getText().toString().trim(),et_user_password.getText().toString().trim());
                             } catch (UnsupportedEncodingException e) {
                                 e.printStackTrace();
                             } catch (JSONException e) {
@@ -131,7 +131,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    private void Register_User(String userId , String userPassword) throws UnsupportedEncodingException, JSONException {
+    private void RegisterUser(String userId , String userPassword) throws UnsupportedEncodingException, JSONException {
         JSONObject requestParams = new JSONObject();
         requestParams.put("userId", userId);
         requestParams.put("userPassword", userPassword);
@@ -173,7 +173,6 @@ public class RegisterActivity extends AppCompatActivity {
                         SharedPreferences.Editor session_editor = userDetails.edit();
                         session_editor.putString("userId", encryption.encryptOrNull(userId));
                         session_editor.putString("userPassword", encryption.encryptOrNull(userPassword));
-                        session_editor.putBoolean("isRegister", false);
                         session_editor.commit();
                         Intent loginIntent = new Intent(getApplicationContext(), SetPinActivity.class);
                         startActivity(loginIntent);

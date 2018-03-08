@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     tools:context="com.omkar.bmcparkingclient.Activity.RegisterActivity">
+
     <ImageView
         android:id="@+id/iv_mcgm"
         android:layout_width="150dp"
@@ -12,38 +14,44 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:src="@drawable/mcgm" />
+
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/et_user_id"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_mcgm"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="10dp"
         android:elevation="4dp"
-        android:layout_below="@+id/iv_mcgm"
         android:hint="User ID"
         android:inputType="textCapCharacters"
         android:maxLength="8"
-        android:layout_centerHorizontal="true"
-        android:layout_width="300dp"
+        android:textColor="@color/colorText"
         app:met_clearButton="true"
         app:met_floatingLabel="highlight"
-        app:met_floatingLabelText="User ID" />
+        app:met_floatingLabelText="User ID"
+        app:met_textColorHint="@color/colorText" />
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/et_user_password"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_below="@id/et_user_id"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="22dp"
-        android:elevation="4dp"
-        android:layout_below="@id/et_user_id"
-        android:hint="User Password"
-        android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:elevation="4dp"
+        android:hint="User Password"
         android:inputType="textPassword"
         android:maxLength="8"
+        android:textColor="@color/colorText"
         app:met_clearButton="true"
         app:met_floatingLabel="highlight"
-        app:met_floatingLabelText="User Password" />
+        app:met_floatingLabelText="User Password"
+        app:met_textColorHint="@color/colorText" />
+
     <Button
         android:id="@+id/button_register"
         android:layout_width="260dp"
