@@ -145,7 +145,7 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onStart() {
-                dialog = ProgressDialog.show(RegisterActivity.this, "Please Wait", "Fetching Current Parking Lot", true);
+                dialog = ProgressDialog.show(RegisterActivity.this, "Please Wait", "Please Wait", true);
 
             }
 

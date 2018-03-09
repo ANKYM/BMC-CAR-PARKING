@@ -36,4 +36,5 @@ dependencies {
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile project(':pinentry')
+    compile 'it.sephiroth.android.library.bottomnavigation:bottom-navigation:2.0.1-rc1'
 }

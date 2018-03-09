@@ -179,7 +179,7 @@ public class SetPinActivity extends AppCompatActivity {
 
             @Override
             public void onStart() {
-                dialog = ProgressDialog.show(SetPinActivity.this, "Please Wait", "Fetching Current Parking Lot", true);
+                dialog = ProgressDialog.show(SetPinActivity.this, "Please Wait", "Please Wait", true);
 
             }
 
