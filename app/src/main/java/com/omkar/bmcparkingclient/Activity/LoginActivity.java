@@ -13,6 +13,7 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.omkar.bmcparkingclient.Helpers.ConnectionDetector;
 import com.omkar.bmcparkingclient.Helpers.Encryption;
+import com.omkar.bmcparkingclient.Helpers.ServiceDetails;
 import com.omkar.bmcparkingclient.Model.ParkingAttendant;
 import com.omkar.bmcparkingclient.R;
 
@@ -86,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
         requestParams.put("deviceModel", "");
         StringEntity entity = new StringEntity(requestParams.toString());
         AsyncHttpClient client = new AsyncHttpClient();
-        client.post(getApplicationContext(), "http://192.168.1.11:3660/Service.svc/LoginUsingPin", entity, "application/json", new AsyncHttpResponseHandler() {
+        client.post(getApplicationContext(), ServiceDetails._URL+"LoginUsingPin", entity, "application/json", new AsyncHttpResponseHandler() {
             @Override
             public void onProgress(long bytesWritten, long totalSize) {
                 super.onProgress(bytesWritten, totalSize);
@@ -125,7 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                                 ParkingAttendant.setUserRole( user.getInt("user_role"));
                                 ParkingAttendant.setUserPermission(user.getInt("user_permission"));
                             }
-                            Intent loginIntent = new Intent(getApplicationContext(), MainActivity.class);
+                            Intent loginIntent = new Intent(getApplicationContext(), DashBoardActivity.class);
                             startActivity(loginIntent);
                             finish();
                         }

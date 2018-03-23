@@ -19,6 +19,7 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.omkar.bmcparkingclient.Helpers.ConnectionDetector;
 import com.omkar.bmcparkingclient.Helpers.Encryption;
+import com.omkar.bmcparkingclient.Helpers.ServiceDetails;
 import com.omkar.bmcparkingclient.R;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
@@ -73,7 +74,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if (et_user_id.getText().toString().trim().length() > 0) {
                         if (et_user_password.getText().toString().trim().length() > 0) {
                             try {
-                                RegisterUser(et_user_id.getText().toString().trim(),et_user_password.getText().toString().trim());
+                                RegisterUser(et_user_id.getText().toString().trim(), et_user_password.getText().toString().trim());
                             } catch (UnsupportedEncodingException e) {
                                 e.printStackTrace();
                             } catch (JSONException e) {
@@ -92,6 +93,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
+
     public static boolean hasPermissions(Context context, String... permissions) {
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
             for (String permission : permissions) {
@@ -103,6 +105,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
         return true;
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
@@ -131,13 +134,13 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
 
-    private void RegisterUser(String userId , String userPassword) throws UnsupportedEncodingException, JSONException {
+    private void RegisterUser(String userId, String userPassword) throws UnsupportedEncodingException, JSONException {
         JSONObject requestParams = new JSONObject();
         requestParams.put("userId", userId);
         requestParams.put("userPassword", userPassword);
         StringEntity entity = new StringEntity(requestParams.toString());
         AsyncHttpClient client = new AsyncHttpClient();
-        client.post(getApplicationContext(), "http://192.168.1.11:3660/Service.svc/AuthenticateUser", entity, "application/json", new AsyncHttpResponseHandler() {
+        client.post(getApplicationContext(), ServiceDetails._URL + "AuthenticateUser", entity, "application/json", new AsyncHttpResponseHandler() {
             @Override
             public void onProgress(long bytesWritten, long totalSize) {
                 super.onProgress(bytesWritten, totalSize);
@@ -166,8 +169,7 @@ public class RegisterActivity extends AppCompatActivity {
                 try {
                     jsonObject = new JSONObject(new String(responseBody));
                     String responseData = jsonObject.getString("data");
-                    if(responseData.equals("true"))
-                    {
+                    if (responseData.equals("true")) {
 
                         userDetails = getSharedPreferences(user_log_prefs, MODE_PRIVATE);
                         SharedPreferences.Editor session_editor = userDetails.edit();
@@ -177,8 +179,14 @@ public class RegisterActivity extends AppCompatActivity {
                         Intent loginIntent = new Intent(getApplicationContext(), SetPinActivity.class);
                         startActivity(loginIntent);
                         finish();
-                    }else
-                    {
+                    } else if (responseData.equals("false")) {
+                        Snackbar.make(getWindow().getDecorView().getRootView(), "Username Or Password Incorrect", Snackbar.LENGTH_LONG).setAction("Dismiss", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                            }
+                        }).show();
+                    } else {
                         Snackbar.make(getWindow().getDecorView().getRootView(), "Something Went Wrong.", Snackbar.LENGTH_LONG).setAction("Dismiss", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {

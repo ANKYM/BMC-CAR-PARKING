@@ -19,6 +19,7 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.omkar.bmcparkingclient.Helpers.ConnectionDetector;
 import com.omkar.bmcparkingclient.Helpers.Encryption;
+import com.omkar.bmcparkingclient.Helpers.ServiceDetails;
 import com.omkar.bmcparkingclient.R;
 
 import org.json.JSONException;
@@ -171,7 +172,7 @@ public class SetPinActivity extends AppCompatActivity {
         requestParams.put("deviceModel", model);
         StringEntity entity = new StringEntity(requestParams.toString());
         AsyncHttpClient client = new AsyncHttpClient();
-        client.post(getApplicationContext(), "http://192.168.1.11:3660/Service.svc/SetLoginPin", entity, "application/json", new AsyncHttpResponseHandler() {
+        client.post(getApplicationContext(), ServiceDetails._URL+"SetLoginPin", entity, "application/json", new AsyncHttpResponseHandler() {
             @Override
             public void onProgress(long bytesWritten, long totalSize) {
                 super.onProgress(bytesWritten, totalSize);
