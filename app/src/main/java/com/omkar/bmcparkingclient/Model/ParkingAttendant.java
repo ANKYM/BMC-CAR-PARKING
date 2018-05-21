@@ -14,6 +14,7 @@ public class ParkingAttendant extends  Application {
     private static String userID;
     private static int userRole;
     private static int userPermission;
+    private static String userLotId;
 
     public static String getUserID() {
         return userID;
@@ -37,5 +38,13 @@ public class ParkingAttendant extends  Application {
 
     public static void setUserPermission(int userPermission) {
         ParkingAttendant.userPermission = userPermission;
+    }
+
+    public static String getUserLotId() {
+        return userLotId;
+    }
+
+    public static void setUserLotId(String userLotId) {
+        ParkingAttendant.userLotId = userLotId;
     }
 }

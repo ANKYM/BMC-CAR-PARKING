@@ -4,7 +4,7 @@ android {
     compileSdkVersion 26
     defaultConfig {
         applicationId "com.omkar.bmcparkingclient"
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -32,9 +32,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile 'com.jaredrummler:android-device-names:1.1.6'
-    compile 'com.rengwuxian.materialedittext:library:2.1.4'
-    compile 'com.loopj.android:android-async-http:1.4.9'
-    compile project(':pinentry')
-    compile 'it.sephiroth.android.library.bottomnavigation:bottom-navigation:2.0.1-rc1'
+    implementation 'com.jaredrummler:android-device-names:1.1.6'
+    implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+    implementation 'com.loopj.android:android-async-http:1.4.9'
+    implementation project(':pinentry')
+    implementation 'com.aurelhubert:ahbottomnavigation:2.1.0'
 }

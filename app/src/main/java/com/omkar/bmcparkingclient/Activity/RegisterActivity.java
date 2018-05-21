@@ -140,6 +140,7 @@ public class RegisterActivity extends AppCompatActivity {
         requestParams.put("userPassword", userPassword);
         StringEntity entity = new StringEntity(requestParams.toString());
         AsyncHttpClient client = new AsyncHttpClient();
+        client.setTimeout(60000);
         client.post(getApplicationContext(), ServiceDetails._URL + "AuthenticateUser", entity, "application/json", new AsyncHttpResponseHandler() {
             @Override
             public void onProgress(long bytesWritten, long totalSize) {

@@ -172,6 +172,7 @@ public class SetPinActivity extends AppCompatActivity {
         requestParams.put("deviceModel", model);
         StringEntity entity = new StringEntity(requestParams.toString());
         AsyncHttpClient client = new AsyncHttpClient();
+        client.setTimeout(60000);
         client.post(getApplicationContext(), ServiceDetails._URL+"SetLoginPin", entity, "application/json", new AsyncHttpResponseHandler() {
             @Override
             public void onProgress(long bytesWritten, long totalSize) {

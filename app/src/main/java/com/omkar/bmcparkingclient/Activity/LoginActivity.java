@@ -87,6 +87,7 @@ public class LoginActivity extends AppCompatActivity {
         requestParams.put("deviceModel", "");
         StringEntity entity = new StringEntity(requestParams.toString());
         AsyncHttpClient client = new AsyncHttpClient();
+
         client.post(getApplicationContext(), ServiceDetails._URL+"LoginUsingPin", entity, "application/json", new AsyncHttpResponseHandler() {
             @Override
             public void onProgress(long bytesWritten, long totalSize) {
@@ -125,6 +126,7 @@ public class LoginActivity extends AppCompatActivity {
                                 ParkingAttendant.setUserID(user.getString("user_id"));
                                 ParkingAttendant.setUserRole( user.getInt("user_role"));
                                 ParkingAttendant.setUserPermission(user.getInt("user_permission"));
+                                ParkingAttendant.setUserLotId(user.getString("assign_lot_id"));
                             }
                             Intent loginIntent = new Intent(getApplicationContext(), DashBoardActivity.class);
                             startActivity(loginIntent);
