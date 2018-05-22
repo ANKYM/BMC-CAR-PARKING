@@ -5,6 +5,5 @@ package com.omkar.bmcparkingclient.Helpers;
  */
 
 public class ServiceDetails {
-//    public final static String _URL = "http://106.201.229.140:3660/Service.svc/";
-    public final static String _URL = "http://192.168.1.11:5500/Service.svc/";
+    public final static String _URL = "http://106.201.229.140:5500/Service.svc/";
 }
