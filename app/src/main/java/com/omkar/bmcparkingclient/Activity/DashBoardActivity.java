@@ -1,5 +1,6 @@
 package com.omkar.bmcparkingclient.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -74,18 +75,15 @@ public class DashBoardActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_read) {
+            Intent intent_readTokenActivity = new Intent(getApplicationContext(), ReadTokenActivity.class);
+            startActivity(intent_readTokenActivity);
+        } else if (id == R.id.nav_issue) {
+            Intent intent_issueTokenActivity = new Intent(getApplicationContext(), IssueTokenActivity.class);
+            startActivity(intent_issueTokenActivity);
+        } else if (id == R.id.nav_reset) {
+            Intent intent_resetTokenActivity = new Intent(getApplicationContext(), ResetTokenActivity.class);
+            startActivity(intent_resetTokenActivity);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
