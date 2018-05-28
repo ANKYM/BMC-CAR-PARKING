@@ -45,9 +45,16 @@
             android:name=".Activity.DashBoardActivity"
             android:label="@string/title_activity_dash_board"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Activity.ReadTokenActivity" />
+        <activity android:name=".Activity.ReadTokenActivity" >
+            <intent-filter>
+                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Activity.IssueTokenActivity" />
-        <activity android:name=".Activity.ResetTokenActivity"></activity>
+        <activity android:name=".Activity.ResetTokenActivity"/>
+
     </application>
 
 </manifest>
