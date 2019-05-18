@@ -6,4 +6,6 @@
     <color name="colorPinFocus">#FF4081</color>
     <color name="colorPinUnFocus">#ff97ba</color>
     <color name="colorText">#FFFFFF</color>
+    <color name="colorBackground">#F5F5F5</color>
+    <color name="colorBackGround1">#b0bec5</color>
 </resources>

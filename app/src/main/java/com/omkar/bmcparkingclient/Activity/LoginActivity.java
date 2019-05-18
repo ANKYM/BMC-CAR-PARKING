@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                     try {
                         LoginUser ();
                     } catch (JSONException e) {
+                        ServiceDetails.hideKeyboard(LoginActivity.this);
                         Snackbar.make(getWindow().getDecorView().getRootView(), "Please Check Internet Connection", Snackbar.LENGTH_LONG).setAction("Dismiss", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -59,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                             }
                         }).show();
                     } catch (UnsupportedEncodingException e) {
+                        ServiceDetails.hideKeyboard(LoginActivity.this);
                         Snackbar.make(getWindow().getDecorView().getRootView(), "Please Check Internet Connection", Snackbar.LENGTH_LONG).setAction("Dismiss", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -67,7 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                         }).show();
                     }
                 } else {
-
+                    ServiceDetails.hideKeyboard(LoginActivity.this);
                     Snackbar.make(getWindow().getDecorView().getRootView(), "Please Check Internet Connection", Snackbar.LENGTH_LONG).setAction("Dismiss", new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -134,6 +136,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         catch (Exception ex)
                         {
+                            ServiceDetails.hideKeyboard(LoginActivity.this);
                             Snackbar.make(getWindow().getDecorView().getRootView(), "Something Went Wrong.", Snackbar.LENGTH_LONG).setAction("Dismiss", new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -144,6 +147,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     }else
                     {
+                        ServiceDetails.hideKeyboard(LoginActivity.this);
                         Snackbar.make(getWindow().getDecorView().getRootView(), "Something Went Wrong.", Snackbar.LENGTH_LONG).setAction("Dismiss", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -161,6 +165,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                 dialog.dismiss();
+                ServiceDetails.hideKeyboard(LoginActivity.this);
                 Snackbar.make(getWindow().getDecorView().getRootView(), "Something Went Wrong.", Snackbar.LENGTH_LONG).setAction("Dismiss", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

@@ -48,13 +48,19 @@
         <activity android:name=".Activity.ReadTokenActivity" >
             <intent-filter>
                 <action android:name="android.nfc.action.TAG_DISCOVERED" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.IssueTokenActivity" />
+        <activity android:name=".Activity.IssueTokenActivity" >
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Activity.ResetTokenActivity"/>
-
+        <activity android:name=".Activity.QRCodeActivity"/>
     </application>
 
 </manifest>
